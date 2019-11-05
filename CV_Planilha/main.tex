@@ -1,0 +1,186 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+%Version for spanish users, by dgarhdez
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX:
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px                    % Saving trees ;-)
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{1pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\EducationEntry}[5]{
+		\noindent \textbf{#4} \hfill      % Study
+		\colorbox{Black}{%
+			\parbox{5cm}{%
+			\hfill\color{White}#3}} \par  % Duration
+		\noindent \textit{#1}, #2 \par        % School, Location
+		\noindent\hangindent=2em\hangafter=0 \small {#5} % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\noindent\colorbox{Black}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Mateus Mota}
+\MySlogan{Telecommunications Engineer}
+
+%\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal Information}{}
+
+\PersonalEntry{Birthdate}{July 23, 1990}
+%\PersonalEntry{Address}{111 First St, New York}
+\PersonalEntry{Phone}{(+55) 85-99738-4579}
+\PersonalEntry{E--Mail}{\url{mateuspontesm@outlook.com}}
+\PersonalEntry{Linkedin}{\url{linkedin.com/in/mateuspontesm/}}
+\PersonalEntry{Github}{\url{github.com/mateuspontesm/}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{Universidade Federal do Ceará}{Fortaleza, Brazil}{2018 - Feb. 2020}{MSc. in Telecommunications Engineering}{
+\begin{itemize}
+    \item Research Line: Big Data Processing for 5G Networks
+\end{itemize}
+}
+
+\sepspace
+
+\EducationEntry{Centro Universitário 7 de Setembro}{Fortaleza, Brazil}{2017 - Dec. 2019}{Graduate Studies in Data Science}{
+\begin{itemize}
+    \item Studies in Business Intelligence, Big Data and Data Analytics.
+\end{itemize}
+}
+
+\sepspace
+\EducationEntry{Universidade Federal do Ceará}{Fortaleza, Brazil}{2010 - 2017}{Bachelor in Telecommunications Engineering}{}
+% \begin{itemize}
+% \item{Especialidad }
+% \item{Asignaturas más relevantes de carrera/especialidad}
+% \item{Proyecto de fin de carrera: \emph{título del proyecto}}
+% \end{itemize}
+
+\sepspace
+
+\EducationEntry{SUPÉLEC}{Gif-sur-Yvette, France}{2012 - 2013}{Exchange Program in Electrical Engineering}{}
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work Experience}{}
+
+\WorkEntry{Researcher}{2018 - Present}{Wireless Communications Research Group - GTEL}{
+\begin{itemize}
+    \item Development of a Python simulator in compliance with T.S. 38.212 and T.S 38.214.
+    \item Development of a Reinforcement Learning solution to Link Adaptation in 5G systems.
+\end{itemize}
+}
+
+\sepspace
+
+\WorkEntry{Scientific Initiation Scholar}{2010 - 2012}{Wireless Communications Research Group - GTEL}{
+\begin{itemize}
+    \item Author of the article: Analysis of the performance of power control of smooth disconnection in cellular systems with macro and femtocells, presented at SBRT 2012.
+\end{itemize}
+}
+
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{Languages}{Portuguese (mother language)}
+\SkillsEntry{}{English (Fluent)}
+\SkillsEntry{}{French (Advanced)}
+
+\SkillsEntry{Software}{Latex, MATLAB, Office Suites, Tableau, Power BI}
+\SkillsEntry{Programming}{Python, SQL, C, Java}
+% \SkillsEntry{Data Science Tools}{Keras, Pytorch, Pandas, Bokeh}
+%\SkillsEntry{}{}
+
+
+%%% References
+%%% ------------------------------------------------------------
+%\NewPart{References}{}
+%Available upon request
+\end{document}
